@@ -21,7 +21,7 @@ const app = express();
 
 // Create DB
 app.get('/getquestions', (req, res) => {
-  let sql = "SELECT * FROM quiz_questions";
+  let sql = "SELECT * FROM quiz_questions ORDER BY RAND() LIMIT 4";
   db.query(sql, (err, result) => {
     if(err) throw err;
     res.send(result);
